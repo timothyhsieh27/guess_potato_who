@@ -1,0 +1,14 @@
+%header.nav-bar
+  %ul
+    %li.option= link_to "Profile", current_user
+    %li.option= link_to "Game", game_path
+    %li.option= link_to "Leaderboard", leaderboard_path
+    %li.option
+      %a Contribute
+    %li.option= link_to "Logout", logout_path, method: :delete
+    %li.show-hide
+      .nav-icon
+        %a
+          %i.material-icons menu
+
+=javascript_include_tag "vendor.min"

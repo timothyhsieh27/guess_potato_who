@@ -1,0 +1,40 @@
+!!! 5
+%html(lang='en')
+  %head
+    %meta(charset='UTF-8')
+    %meta(content="width=device-width, initial-scale=1" name="viewport")
+    %title Leadership
+    %link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Luckiest+Guy')
+    =stylesheet_link_tag 'application.css'
+  %body
+    - topPeople = [{name: 'Jane Doe', img: 'person.svg', total: '1451'}, {name: 'Henry Adams', img: 'person.svg', total: '1451'},
+        {name: 'Lisa Kyle', img: 'person.svg', total: '1451'}, {name: 'Sue James', img: 'person.svg', total: '1451'},
+        {name: 'Ben Smith', img: 'person.svg', total: '1451'}, {name: 'John Doe', img: 'person.svg', total: '1451'},
+        {name: 'Ben Smith', img: 'person.svg', total: '1451'}, {name: 'John Doe', img: 'person.svg', total: '1451'},
+        {name: 'Ben Smith', img: 'person.svg', total: '1451'}, {name: 'John Doe', img: 'person.svg', total: '1451'}]
+    .container
+      %header
+        %nav
+          .totalPoints
+            .total Total Points:
+            %span 1300
+            .points
+          .profile
+            .picture
+              %img(src='/assets/person.svg' alt='John')
+            .name Hey, John
+            .leaderpage Leader Board?
+          .logo
+            %img(src='/assets/logo.svg' alt='logo')
+      %main.leadership-board
+        - (topPeople).each_with_index do |person, index|
+          .leadership-person{:id => "#{index}"}
+            .person-info
+              %h1 #{person[:name]}
+              %img(src='/assets/#{person[:img]}' alt='#{person[:name]}')
+            .person-stats
+              .placement # #{index}
+              .total Total Points:
+              %span #{person[:total]}
+  =javascript_include_tag 'vendor.min.js'
+  =javascript_include_tag 'app.js'

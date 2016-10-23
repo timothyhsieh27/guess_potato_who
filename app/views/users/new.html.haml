@@ -1,0 +1,16 @@
+!!! 5
+%html(lang='en')
+  %head
+    %meta(charset='UTF-8')
+    %meta(content='width=device-width, initial-scale=1' name='viewport')
+    %title Mr. Potato Who?
+    =stylesheet_link_tag 'main.min.css'
+  %body
+    #container
+      =form_for(@user) do |f|
+        =f.text_field :name, class: "", label: "Name"
+        =f.email_field :email, class: "", label: "Email"
+        =f.password_field :password, class: "", label: "Password"
+        =f.submit "Create New User", id: "lower", class: ""
+      =javascript_include_tag 'vendor.min.js'
+      =javascript_include_tag 'app.js'
